@@ -1,0 +1,82 @@
+/* ===============================
+   DASHBOARD UI
+   =============================== */
+
+.balance-card{
+  margin:0 14px;
+  padding:18px;
+  border-radius:var(--radius-card);
+  background:var(--card-bg);
+  box-shadow:0 0 0 1px var(--border) inset;
+}
+
+.balance-title{
+  font-size:12px;
+  color:var(--muted);
+}
+
+.balance-value{
+  font-size:30px;
+  font-weight:700;
+  margin-top:4px;
+}
+
+.balance-sub{
+  font-size:12px;
+  margin-top:4px;
+}
+
+/* STATS */
+.stats{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-top:16px;
+}
+
+.stat{
+  background:var(--subcard-bg);
+  padding:10px;
+  border-radius:12px;
+  font-size:12px;
+}
+
+.stat span{
+  display:block;
+  margin-top:4px;
+  font-size:14px;
+  font-weight:600;
+}
+
+/* TRADES */
+.section{
+  padding:14px;
+}
+
+.section-title{
+  font-size:13px;
+  color:var(--muted);
+  margin-bottom:10px;
+}
+
+.trade{
+  display:flex;
+  justify-content:space-between;
+  padding:12px 0;
+  border-bottom:1px solid var(--border);
+  font-size:13px;
+}
+
+.trade:last-child{border-bottom:none}
+
+.pair{font-weight:600}
+
+.side{
+  font-size:10px;
+  padding:3px 8px;
+  border-radius:999px;
+  margin-left:6px;
+}
+
+.BUY{background:#1e4d38;color:var(--green)}
+.SELL{background:#4d1e1e;color:var(--red)}

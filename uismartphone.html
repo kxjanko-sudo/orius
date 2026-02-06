@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- iOS PWA -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Orius">
+
+  <!-- Splash screens iOS -->
+  <link rel="apple-touch-startup-image" href="icons/splash-750x1334.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)">
+  <link rel="apple-touch-startup-image" href="icons/splash-828x1792.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)">
+  <link rel="apple-touch-startup-image" href="icons/splash-1170x2532.png" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3)">
+  <link rel="apple-touch-startup-image" href="icons/splash-1290x2796.png" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3)">
+<meta charset="UTF-8">
+<title>Orius — Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0b0e14">
+<link rel="stylesheet" href="ui-core.css">
+<link rel="stylesheet" href="Market.css">
+
+<style>
+/* ===============================
+   VARIABLES
+   =============================== */
+:root{
+  --bg:#0b0e14;
+  --border:#222a4d;
+  --text:#e5e7ff;
+  --muted:#8c92c9;
+  --green:#2eff9a;
+  --red:#ff6b6b;
+  --accent:#2ef3ff;
+
+  --card-bg:linear-gradient(180deg,#1a1f3d,#131733);
+  --subcard-bg:#0e1330;
+  --radius-card:16px;
+  --radius-btn:14px;
+}
+
+/* RESET */
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:system-ui,-apple-system;
+}
+
+/* APP */
+.app{
+  max-width:420px;
+  margin:auto;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+/* HEADER */
+.header{
+  padding:16px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.header h1{
+  margin:0;
+  font-size:16px;
+}
+
+/* ===============================
+   BALANCE CARD
+   =============================== */
+.balance-card{
+  margin:0 14px;
+  padding:18px;
+  border-radius:var(--radius-card);
+  background:var(--card-bg);
+  box-shadow:0 0 0 1px var(--border) inset;
+}
+
+.balance-title{
+  font-size:12px;
+  color:var(--muted);
+}
+
+.balance-value{
+  font-size:30px;
+  font-weight:700;
+  margin-top:4px;
+}
+
+.balance-sub{
+  font-size:12px;
+  margin-top:4px;
+}
+
+/* STATS */
+.stats{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-top:16px;
+}
+
+.stat{
+  background:var(--subcard-bg);
+  padding:10px;
+  border-radius:12px;
+  font-size:12px;
+}
+
+.stat span{
+  display:block;
+  margin-top:4px;
+  font-size:14px;
+  font-weight:600;
+}
+
+/* ===============================
+   TRADES
+   =============================== */
+.section{
+  padding:14px;
+}
+
+.section-title{
+  font-size:13px;
+  color:var(--muted);
+  margin-bottom:10px;
+}
+
+.trade{
+  display:flex;
+  justify-content:space-between;
+  padding:12px 0;
+  border-bottom:1px solid var(--border);
+  font-size:13px;
+}
+
+.trade:last-child{border-bottom:none}
+
+.pair{font-weight:600}
+
+.side{
+  font-size:10px;
+  padding:3px 8px;
+  border-radius:999px;
+  margin-left:6px;
+}
+
+.BUY{background:#1e4d38;color:var(--green)}
+.SELL{background:#4d1e1e;color:var(--red)}
+
+.green{color:var(--green)}
+.red{color:var(--red)}
+
+/* ===============================
+   BOTTOM NAV
+   =============================== */
+.bottom-nav{
+  position:sticky;
+  bottom:0;
+  display:flex;
+  justify-content:space-around;
+  padding:8px 0;
+  margin-top:auto;
+
+  background:rgba(15,20,51,.65);
+  backdrop-filter:blur(14px) saturate(160%);
+  -webkit-backdrop-filter:blur(14px) saturate(160%);
+
+  border-top:1px solid rgba(255,255,255,.06);
+  box-shadow:
+    0 -10px 30px rgba(0,0,0,.4),
+    inset 0 1px 0 rgba(255,255,255,.04);
+}
+
+
+</style>
+</head>
+
+<body>
+<div class="app">
+
+<div class="header">
+  <h1>Orius</h1>
+  <div style="opacity:.6">⚡ Live</div>
+</div>
+
+<div class="balance-card">
+  <div class="balance-title">Capital engagé</div>
+  <div class="balance-value" id="engaged_total">—</div>
+  <div class="balance-sub" id="latent">—</div>
+
+  <div class="stats">
+    <div class="stat">Profit locké <span id="locked" class="green">—</span></div>
+    <div class="stat">Trades ouverts <span id="trade_count">—</span></div>
+    <div class="stat">Capital / trade <span id="per_trade">—</span></div>
+    <div class="stat">PnL latent <span id="latent_stat">—</span></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">📂 Trades en cours</div>
+  <div id="trades">—</div>
+</div>
+
+<div class="bottom-nav">
+  <button class="nav-btn active" data-page="trades">
+    <svg viewBox="0 0 24 24" class="icon">
+      <defs>
+        <linearGradient id="iconGradient" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#8cf9ff"/>
+          <stop offset="100%" stop-color="#2ef3ff"/>
+        </linearGradient>
+        <linearGradient id="iconGradientActive" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#ffffff"/>
+          <stop offset="100%" stop-color="#2ef3ff"/>
+        </linearGradient>
+      </defs>
+      <path d="M3 3v18h18"/>
+      <path d="M7 14l3-3 4 4 5-6"/>
+    </svg>
+    Trades
+  </button>
+  <button class="nav-btn" data-page="Market">
+    <svg viewBox="0 0 24 24" class="icon">
+      <path d="M3 17l6-6 4 4 7-7"/>
+      <path d="M14 8h6v6"/>
+    </svg>
+    Market
+  </button>
+  <button class="nav-btn" data-page="account">
+    <svg viewBox="0 0 24 24" class="icon">
+      <circle cx="12" cy="8" r="4"/>
+      <path d="M4 21c0-4 4-7 8-7s8 3 8 7"/>
+    </svg>
+    Account
+  </button>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  Orius • Profit fixe +0.20 € • Capital non réutilisé
+</div>
+
+</div>
+
+<script>
+document.querySelectorAll(".nav-btn").forEach(btn=>{
+  btn.onclick=()=>{
+    document.querySelectorAll(".nav-btn").forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
+    if(navigator.vibrate)navigator.vibrate(12);
+    if(btn.dataset.page==="Market")location.href="Market.html";
+    if(btn.dataset.page==="trades")location.href="ui smartphone.html";
+    if(btn.dataset.page==="account")location.href="Account.html";
+  };
+});
+</script>
+
+</body>
+</html>

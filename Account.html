@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- iOS PWA -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Orius">
+
+  <!-- Splash screens iOS -->
+  <link rel="apple-touch-startup-image" href="icons/splash-750x1334.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)">
+  <link rel="apple-touch-startup-image" href="icons/splash-828x1792.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)">
+  <link rel="apple-touch-startup-image" href="icons/splash-1170x2532.png" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3)">
+  <link rel="apple-touch-startup-image" href="icons/splash-1290x2796.png" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3)">
+<meta charset="UTF-8">
+<title>Orius — Account</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0b0e14">
+
+<link rel="stylesheet" href="ui-core.css">
+
+<style>
+/* ===============================
+   ACCOUNT PAGE
+   =============================== */
+
+/* AVATAR */
+.account-top{
+  padding:18px 14px 12px;
+  display:flex;
+  justify-content:center;
+}
+
+.avatar{
+  width:72px;
+  height:72px;
+  border-radius:50%;
+  background:#7f8cff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+  font-size:22px;
+  color:#fff;
+  position:relative;
+}
+
+.avatar-edit{
+  position:absolute;
+  bottom:-2px;
+  right:-2px;
+  width:22px;
+  height:22px;
+  border-radius:50%;
+  background:#11162a;
+  border:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:12px;
+}
+
+/* CARDS */
+.account-card{
+  margin:12px 14px;
+  background:var(--card-bg);
+  border-radius:var(--radius-card);
+  box-shadow:0 0 0 1px var(--border) inset;
+  overflow:hidden;
+}
+
+/* ROW */
+.account-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px;
+  font-size:14px;
+}
+
+.account-row + .account-row{
+  border-top:1px solid var(--border);
+}
+
+.row-right{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  color:var(--muted);
+}
+
+.chevron{opacity:.5}
+
+.verified{
+  color:var(--green);
+  font-weight:600;
+}
+</style>
+</head>
+
+<body>
+<div class="app">
+
+<!-- HEADER -->
+<div class="header">
+  <h1>Account Info</h1>
+  <div style="opacity:.6">←</div>
+</div>
+
+<!-- AVATAR -->
+<div class="account-top">
+  <div class="avatar">
+    MD
+    <div class="avatar-edit">✎</div>
+  </div>
+</div>
+
+<!-- MAIN CARD -->
+<div class="account-card">
+
+  <div class="account-row">
+    <div>Account Name</div>
+    <div class="row-right">
+      Account Name <span class="chevron">›</span>
+    </div>
+  </div>
+
+  <div class="account-row">
+    <div>Verifications</div>
+    <div class="row-right">
+      <span class="verified">Verified</span>
+      <span class="chevron">›</span>
+    </div>
+  </div>
+
+  <div class="account-row">
+    <div>Account Addresses</div>
+    <div class="row-right">
+      <span class="chevron">›</span>
+    </div>
+  </div>
+
+  <div class="account-row">
+    <div>History</div>
+    <div class="row-right">
+      <span class="chevron">›</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- SECOND CARD -->
+<div class="account-card">
+
+  <div class="account-row">
+    <div>UID</div>
+    <div class="row-right">📋</div>
+  </div>
+
+  <div class="account-row">
+    <div>Registration Info</div>
+    <div class="row-right">🙈</div>
+  </div>
+
+</div>
+
+<!-- BOTTOM NAV -->
+<div class="bottom-nav">
+  <button class="nav-btn" data-page="trades">
+    <svg viewBox="0 0 24 24" class="icon">
+      <defs>
+        <linearGradient id="iconGradient" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#8cf9ff"/>
+          <stop offset="100%" stop-color="#2ef3ff"/>
+        </linearGradient>
+        <linearGradient id="iconGradientActive" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#ffffff"/>
+          <stop offset="100%" stop-color="#2ef3ff"/>
+        </linearGradient>
+      </defs>
+      <path d="M3 3v18h18"/>
+      <path d="M7 14l3-3 4 4 5-6"/>
+    </svg>
+    Trades
+  </button>
+  <button class="nav-btn" data-page="Market">
+    <svg viewBox="0 0 24 24" class="icon">
+      <path d="M3 17l6-6 4 4 7-7"/>
+      <path d="M14 8h6v6"/>
+    </svg>
+    Market
+  </button>
+  <button class="nav-btn active" data-page="account">
+    <svg viewBox="0 0 24 24" class="icon">
+      <circle cx="12" cy="8" r="4"/>
+      <path d="M4 21c0-4 4-7 8-7s8 3 8 7"/>
+    </svg>
+    Account
+  </button>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  Orius • Profit fixe +0.20 € • Capital non réutilisé
+</div>
+
+</div>
+
+<script>
+document.querySelectorAll(".nav-btn").forEach(btn=>{
+  btn.onclick=()=>{
+    document.querySelectorAll(".nav-btn").forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
+    if(navigator.vibrate)navigator.vibrate(12);
+
+    if(btn.dataset.page==="Market")location.href="Market.html";
+    if(btn.dataset.page==="trades")location.href="uismartphone.html";
+    if(btn.dataset.page==="account")location.href="Account.html";
+  };
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!-- iOS PWA -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Orius">
+
+    <!-- Splash screens iOS -->
+    <link rel="apple-touch-startup-image" href="icons/splash-750x1334.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)">
+    <link rel="apple-touch-startup-image" href="icons/splash-828x1792.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)">
+    <link rel="apple-touch-startup-image" href="icons/splash-1170x2532.png" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3)">
+    <link rel="apple-touch-startup-image" href="icons/splash-1290x2796.png" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3)">
+  <meta charset="UTF-8">
+  <title>Orius — Market</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#0b0e14">
+  <link rel="stylesheet" href="ui-core.css">
+  <link rel="stylesheet" href="Market.css">
+</head>
+<body>
+<div class="app">
+  <!-- HEADER -->
+  <div class="header">
+    <h1>Orius</h1>
+    <div style="opacity:.6">⚡ Live</div>
+  </div>
+  <!-- Market -->
+  <div class="list">
+    <div class="asset" data-symbol="btc">
+      <div class="asset-left">
+        <img class="icon-coin" src="icons/bitcoin-btc-logo.png">
+        <div><div class="name">Bitcoin</div><div class="price">$—</div></div>
+      </div>
+      <div class="change-wrapper"><span class="arrow">—</span><span class="change">—</span></div>
+    </div>
+    <div class="asset" data-symbol="eth">
+      <div class="asset-left">
+        <img class="icon-coin" src="icons/ethereum-eth-logo.png">
+        <div><div class="name">Ethereum</div><div class="price">$—</div></div>
+      </div>
+      <div class="change-wrapper"><span class="arrow">—</span><span class="change">—</span></div>
+    </div>
+    <div class="asset" data-symbol="bnb">
+      <div class="asset-left">
+        <img class="icon-coin" src="icons/bnb-bnb-logo.png">
+        <div><div class="name">BNB</div><div class="price">$—</div></div>
+      </div>
+      <div class="change-wrapper"><span class="arrow">—</span><span class="change">—</span></div>
+    </div>
+    <div class="asset" data-symbol="sol">
+      <div class="asset-left">
+        <img class="icon-coin" src="icons/solana-sol-logo.png">
+        <div><div class="name">Solana</div><div class="price">$—</div></div>
+      </div>
+      <div class="change-wrapper"><span class="arrow">—</span><span class="change">—</span></div>
+    </div>
+    <div class="asset" data-symbol="matic">
+      <div class="asset-left">
+        <img class="icon-coin" src="icons/polygon-matic-logo.png">
+        <div><div class="name">Polygon</div><div class="price">$—</div></div>
+      </div>
+      <div class="change-wrapper"><span class="arrow">—</span><span class="change">—</span></div>
+    </div>
+    <div class="asset" data-symbol="xrp">
+      <div class="asset-left">
+        <img class="icon-coin" src="icons/xrp-xrp-logo.png">
+        <div><div class="name">XRP</div><div class="price">$—</div></div>
+      </div>
+      <div class="change-wrapper"><span class="arrow">—</span><span class="change">—</span></div>
+    </div>
+    <div class="asset" data-symbol="doge">
+      <div class="asset-left">
+        <img class="icon-coin" src="icons/dogecoin-doge-logo.png">
+        <div><div class="name">Dogecoin</div><div class="price">$—</div></div>
+      </div>
+      <div class="change-wrapper"><span class="arrow">—</span><span class="change">—</span></div>
+    </div>
+    <div class="asset" data-symbol="zec">
+      <div class="asset-left">
+        <img class="icon-coin" src="icons/zcash-zec-logo.png">
+        <div><div class="name">Zcash</div><div class="price">$—</div></div>
+      </div>
+      <div class="change-wrapper"><span class="arrow">—</span><span class="change">—</span></div>
+    </div>
+    <div class="asset" data-symbol="sui">
+      <div class="asset-left">
+        <img class="icon-coin" src="icons/sui-sui-logo.png">
+        <div><div class="name">Sui</div><div class="price">$—</div></div>
+      </div>
+      <div class="change-wrapper"><span class="arrow">—</span><span class="change">—</span></div>
+    </div>
+  </div>
+  <!-- BOTTOM NAV -->
+  <div class="bottom-nav">
+    <button class="nav-btn" data-page="trades">
+      <svg viewBox="0 0 24 24" class="icon">
+        <defs>
+          <linearGradient id="iconGradient" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#8cf9ff"/>
+            <stop offset="100%" stop-color="#2ef3ff"/>
+          </linearGradient>
+          <linearGradient id="iconGradientActive" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#ffffff"/>
+            <stop offset="100%" stop-color="#2ef3ff"/>
+          </linearGradient>
+        </defs>
+        <path d="M3 3v18h18"/>
+        <path d="M7 14l3-3 4 4 5-6"/>
+      </svg>
+      Trades
+    </button>
+    <button class="nav-btn active" data-page="Market">
+      <svg viewBox="0 0 24 24" class="icon">
+        <path d="M3 17l6-6 4 4 7-7"/>
+        <path d="M14 8h6v6"/>
+      </svg>
+      Market
+    </button>
+    <button class="nav-btn" data-page="account">
+      <svg viewBox="0 0 24 24" class="icon">
+        <circle cx="12" cy="8" r="4"/>
+        <path d="M4 21c0-4 4-7 8-7s8 3 8 7"/>
+      </svg>
+      Account
+    </button>
+  </div>
+  <!-- FOOTER -->
+  <div class="footer">
+    Orius • Profit fixe +0.20 € • Capital non réutilisé
+  </div>
+</div>
+<script>
+const assets = {};
+document.querySelectorAll(".asset").forEach(a => {
+  assets[a.dataset.symbol] = {
+    root: a,
+    price: a.querySelector(".price"),
+    change: a.querySelector(".change"),
+    arrow: a.querySelector(".arrow"),
+    last: null
+  };
+});
+async function updatePrices() {
+  try {
+    const r = await fetch("prices.json?_=" + Date.now());
+    const d = await r.json();
+    for (const s in d) {
+      if (!assets[s]) continue;
+      const o = assets[s];
+      const p = d[s].price;
+      const c = d[s].change * 100;
+      o.price.textContent = "$" + p.toLocaleString("en-US", { maximumFractionDigits: 6 });
+      o.change.textContent = (c >= 0 ? "+" : "") + c.toFixed(2) + "%";
+      let dir = "up";
+      if (o.last !== null && p < o.last) dir = "down";
+      o.arrow.textContent = dir === "up" ? "↑" : "↓";
+      o.arrow.className = "arrow " + dir + " flash";
+      o.price.className = "price " + (dir === "up" ? "green" : "red");
+      o.change.className = "change " + (dir === "up" ? "green" : "red");
+      o.root.classList.remove("pulse-up", "pulse-down");
+      o.root.classList.add(dir === "up" ? "pulse-up" : "pulse-down");
+      o.last = p;
+      setTimeout(() => {
+        o.arrow.classList.remove("flash");
+        o.root.classList.remove("pulse-up", "pulse-down");
+      }, 500);
+    }
+  } catch (e) {}
+}
+setInterval(updatePrices, 500);
+updatePrices();
+document.querySelectorAll(".nav-btn").forEach(btn => {
+  btn.onclick = () => {
+    document.querySelectorAll(".nav-btn").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    if (navigator.vibrate) navigator.vibrate(12);
+    if(btn.dataset.page==="Market")location.href="Market.html";
+    if(btn.dataset.page==="trades")location.href="uismartphone.html";
+    if(btn.dataset.page==="account")location.href="Account.html";
+  };
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+/* ===============================
+   MARKET UI
+   =============================== */
+
+.list{
+  padding:0 14px 16px;
+}
+
+.asset{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:14px;
+  margin-bottom:10px;
+
+  background:var(--card-bg);
+  border-radius:var(--radius-card);
+  box-shadow:0 0 0 1px var(--border) inset;
+}
+
+.asset-left{
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+
+.icon-coin{
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  background:#000;
+  object-fit:contain;
+}
+
+.name{font-weight:600;font-size:14px}
+.price{font-size:13px;margin-top:2px}
+
+.change-wrapper{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  font-size:13px;
+  font-weight:600;
+}
+
+/* ARROWS */
+.arrow{
+  display:inline-block;
+  transition:transform .25s ease;
+}
+.arrow.up{transform:translateY(-4px)}
+.arrow.down{transform:translateY(4px)}
+.arrow.flash{animation:pulse .4s ease}
+
+@keyframes pulse{
+  0%{transform:scale(1)}
+  50%{transform:scale(1.25)}
+  100%{transform:scale(1)}
+}
+
+/* CARD PULSE */
+.asset.pulse-up{animation:pulseGreen .5s ease}
+.asset.pulse-down{animation:pulseRed .5s ease}
+
+@keyframes pulseGreen{
+  50%{box-shadow:0 0 18px rgba(46,255,154,.55)}
+}
+@keyframes pulseRed{
+  50%{box-shadow:0 0 18px rgba(255,107,107,.55)}
+}
